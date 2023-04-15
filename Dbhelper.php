@@ -32,13 +32,39 @@ class DBhelper {
     }
 
     public function createUser($name, $price, $desc, $img) {
-        $this->pdo->query("INSERT INTO shop.products (name, price, description, image) VALUES ('".$name."','".$price."', '".$desc."', '".$img."');");
+        $this->pdo->query("INSERT INTO products (name, price, description, image) VALUES ('".$name."','".$price."', '".$desc."', '".$img."');");
 
     }
     public function  getProductById($id){
-        $statement = $this ->pdo -> query("SELECT * FROM shop.products WHERE id = $id");
+        $statement = $this ->pdo -> query("SELECT * FROM products WHERE id = $id");
         $result = $statement ->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+    
+    public function checkAuth($login, $password){
+        $users = $this->getAll('users');
+        foreach ($users as $user){
+            if ($login == $user['login'] && $password == $user['password']){
+                return $user{"id"};
+            }
+        }
+        return false;
+    }
 
+    public function registrateUser($login, $password){
+        $this->pdo->query("INSERT INTO users (name, login, password) VALUES ('user','".$login."', '".$password."');");
+    }
+
+
+    public function updateBalance($id,$value){
+        $user = $this->getUser($id);
+        $final_balance = $user['balance'] + $value;
+        $this->pdo->query("UPDATE users SET balance = '".$final_balance."' WHERE (`id` = '".$id."');");
+    }
+
+    public function getUser($id){
+        $user = $this->pdo->query("SELECT * FROM users WHERE id = '".$id."';");
+        $result = $user ->fetchAll(PDO::FETCH_ASSOC);
+        return $result[0];
+    }
 }
