@@ -1,7 +1,8 @@
 <?php
+//die($_POST['test']);
 include 'Header.html';
 $Product_id = $_POST['pId'];
-require_once "DBhelper.php";
+require_once "Dbhelper.php";
 $helper = new DBhelper();
 $helper ->connect();
 $Product = $helper ->getProductById($Product_id);

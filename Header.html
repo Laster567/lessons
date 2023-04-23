@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
         <div class="Header-main">
-            <span class="Header-text">
+            <a href="index.php">
+                <span class="Header-text">
                 Каталог
             </span>
+            </a>
+
           <a href="my.php">
               Ссылка на профиль
           </a>
@@ -21,6 +25,28 @@
             </a>
         </div>
 <script>
+
+    function openOrder(id){
+        document.forms[id].submit();
+    }
+    jQuery(document).ready(function($){
+
+        $('.card').find('button').click(function ( event){
+            event.preventDefault();
+            $.ajax({
+                url: 'buy.php',
+                data: {id:$(this).attr('id'),
+                cart_id:$(this).attr('cartid')},
+                success: function ( result){
+                    console.log("sent")
+                }
+            })
+        });
+
+
+
+
+    });
     var counter=0
 
     function test(){

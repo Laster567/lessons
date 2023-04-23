@@ -1,6 +1,6 @@
 <?php
 
-require_once "DBhelper.php";
+require_once "Dbhelper.php";
 $helper = new DBhelper();
 $helper ->connect();
 print_r($helper ->getProductById(1)) ;
@@ -17,7 +17,7 @@ else{
 
 
 if ($isAut == false){
-    echo '<form action="/admin.php" method="POST" >
+    echo '<form action="/lessons/admin.php" method="POST" >
     <input type="text" name="pass" />
     <input type="submit" value="Ввести"/>
 </form>';

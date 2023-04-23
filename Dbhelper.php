@@ -67,4 +67,22 @@ class DBhelper {
         $result = $user ->fetchAll(PDO::FETCH_ASSOC);
         return $result[0];
     }
+
+    public function createCart($id){
+        $beginCartID = $this->pdo->query("SELECT * FROM carts WHERE users_id = '".$id."';");
+        $beginResult = $beginCartID ->fetchAll(PDO::FETCH_ASSOC);
+        if (!$beginResult[0]['id']){
+            $this->pdo->query("INSERT INTO carts (users_id) VALUES ('$id');");
+            $cartID = $this->pdo->query("SELECT * FROM carts WHERE users_id = '".$id."';");
+            $result = $cartID ->fetchAll(PDO::FETCH_ASSOC);
+            return $result[0]['id'];
+        }else{
+            return $beginResult[0]['id'];
+        }
+    }
+
+    public function addToCart($productId,$cartId){
+        $this->pdo->query("INSERT INTO cart_has_product (cart_id, Product_id) VALUES ('".$cartId."','".$productId."');");
+
+    }
 }

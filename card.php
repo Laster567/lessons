@@ -11,10 +11,8 @@ $data = $helper ->getAll("products");
 echo '<div class="content"><div class="grid">';
 foreach ($data as $d){
     echo '
-        <div class="card">
-            <form action="product.php" method="post">
-                <input type="hidden" name="pId" value="'.$d['id'].'">
-
+        <div class="card" >
+            <form id="card' .$d['id'].'" onclick="openOrder(openOrder(\'card' .$d['id']. ' .$d['id'].'">
                 <div class="card-content">
                 <img class="card-img" src="'.$d["image"].'">
                 <h1 style="
@@ -26,9 +24,13 @@ foreach ($data as $d){
                 <div class="card-text">
                     <b>'.$d["price"].' руб.</b>
                 </div>
-                <input type="submit" class="card-button" value="Подробнее...">
+               
             </div>
             </form>
+            <form id="card' .$d['id'].'" action="buy.php" method="post">
+                <button cartId = "'.$_SESSION['cart'].'" id="' .$d['id'].'">Добавить в корзину</button>
+            </form>
+            
         </div>
 ';
 }
