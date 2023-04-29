@@ -1,10 +1,11 @@
 <?php
 //die($_POST['test']);
 include 'Header.html';
-$Product_id = $_POST['pId'];
+$Product_id = $_GET['pId'];
 require_once "Dbhelper.php";
 $helper = new DBhelper();
 $helper ->connect();
+
 $Product = $helper ->getProductById($Product_id);
 $Product = $Product[0];
 echo "

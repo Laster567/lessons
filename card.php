@@ -12,7 +12,8 @@ echo '<div class="content"><div class="grid">';
 foreach ($data as $d){
     echo '
         <div class="card" >
-            <form id="card' .$d['id'].'" onclick="openOrder(openOrder(\'card' .$d['id']. ' .$d['id'].'">
+            <form id="card' .$d['id'].'" onclick="openOrder(\'card' .$d['id']. '\')" action="product.php">
+            <input type="hidden" value="'.$d['id'].'" name="pId">
                 <div class="card-content">
                 <img class="card-img" src="'.$d["image"].'">
                 <h1 style="
