@@ -3,7 +3,7 @@
 require_once "Dbhelper.php";
 $helper = new DBhelper();
 $helper ->connect();
-print_r($helper ->getProductById(1)) ;
+//print_r($helper ->getProductById(1)) ;
 
 $isAut = false;
 if ($_POST['pass'] != "password"){

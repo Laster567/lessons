@@ -85,4 +85,10 @@ class DBhelper {
         $this->pdo->query("INSERT INTO cart_has_product (cart_id, Product_id) VALUES ('".$cartId."','".$productId."');");
 
     }
+
+    public function  getCartById($id){
+        $statement = $this ->pdo -> query("SELECT * FROM cart_has_product WHERE cart_id = $id");
+        $result = $statement ->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

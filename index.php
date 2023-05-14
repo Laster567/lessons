@@ -9,6 +9,7 @@ if (isset($_POST['login']) && isset($_POST['password'])){
         if ($helper->checkAuth($_POST['login'],$_POST['password'])){
             $_SESSION['user'] = $helper->checkAuth($_POST['login'],$_POST['password']);
             $_SESSION['cart'] = $helper->createCart($_SESSION['user']);
+            print_r($_SESSION['user']);
             if ($_POST['remember']){
                 $_SESSION['isAuth'] = true;
             }
