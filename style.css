@@ -385,3 +385,12 @@ a.button16:active {
 /*.form_wrapper{*/
 /*    background-color: #71e0ba;*/
 /*}*/
+
+.btnn {
+    display: inherit; /* Строчно-блочный элемент */
+    background: #8C959D; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 0px 0px 3px 3px; /* Скругляем уголки */
+}

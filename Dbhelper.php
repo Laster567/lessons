@@ -110,6 +110,13 @@ class DBhelper {
 
     }
 
+    public function getQuantity($user_id,$product_id){
+        $statement = $this->pdo->query("SELECT COUNT(product_id) from orders where (user_id = $user_id and product_id = $product_id);");
+        $result = $statement ->fetchAll(PDO::FETCH_ASSOC);
+        return $result[0]['COUNT(product_id)'];
+
+    }
+
 
 
 }
