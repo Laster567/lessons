@@ -87,6 +87,301 @@ input{
 .product_img{
     height: 600px;
 }
+
+
+
+/*стили для модалки*/
+
+/* Кнопка */
+.btn-modal {
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #A05FF5;
+    transition: all 0.3s ease-out;
+}
+.btn-modal:hover {
+    background-color: #4e2d79;
+}
+
+/* Модальное окно */
+#modal-block {
+    background-color:#A05FF5;
+    color: #fff;
+    position: fixed;
+    top:15vh;
+    left:100vw;
+    width:15vw;
+    height: 100vh;
+    transition: all .5s;
+    font-family: 'Raleway', sans-serif;
+    z-index: 9;
+
+}
+#modal-block:target{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    left:85vw;
+}
+
+/* Заголовкии текст */
+#modal-block h3{
+    margin: 20px 0;
+    font-size: 1.7em;
+}
+#modal-block p{
+    width: 50%;
+    text-align:justify;
+}
+
+/* Кнопка закрыть */
+.close-block{
+    display: flex;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    padding: .5em;
+    background-color: #fff;
+    color: #527c82;
+    text-decoration: none;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+
+
+.cart_main{
+
+}
+
+.cart_main_button{
+
+    background: rgb(214 221 221 / 0%);
+    border: 0px;
+    font-size: xxx-large;
+    color: white;
+
+
+}
+
+.cart_main_button:hover{
+    color: #4e2d79;
+}
+.cart_main_button:active{
+    color: #A05FF5;
+}
+
+
+.cart_main_button_all{
+
+    background: rgb(214 221 221 / 0%);
+    border: 0px;
+    font-size: xxx-large;
+    color: white;
+
+
+}
+
+.cart_main_button_all:hover{
+    color: #4e2d79;
+}
+.cart_main_button_all:active{
+    color: #A05FF5;
+}
+
+a.button11 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 135%;
+    font-weight: 700;
+    text-decoration: none;
+    padding: .25em .5em;
+}
+a.button11:after {
+    content: "Купить";  /* здесь 6 букв */
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    width: calc(100% + 6*(1em*90/135) - 2px*2*2);  /* где 6*(1em*90/135), где 6 - это 6 букв, 90 - это font-size after, а 135 - это font-size родителя */
+    text-align: right;
+    color: #fff;
+    font-size: 90%;
+    padding: .25em .5em;
+    border-radius: 5px;
+    border: 2px solid #A05FF5;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    background: linear-gradient(#A05FF5, #4e2d79) no-repeat 100% 0;
+    background-size: calc(6*(1em*90/135) + .5em) 100%;
+    box-shadow: inset calc(-6*(1em*90/135) - .5em) 0 rgba(255,255,255,0);
+    transition: .3s;
+}
+a.button11:hover:after {
+    box-shadow: inset calc(-6*(1em*90/135) - .5em) 0 rgba(255,255,255,.2);
+}
+a.button11:active:after {
+    background-image: linear-gradient(#A05FF5, #4e2d79);
+}
+
+
+.warning{
+    color: #a70c0c;
+}
+
+
+a.fciA {
+    margin: 40px auto;
+    font-family:arial;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    text-align:center;
+    display:block;
+    width:fit-content;
+    color: #ff0000;
+    position: relative;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+}
+a.fciA:hover {
+    color: black;
+    background:rgba(0,0,0,0.1);
+}
+a.fciA:after {
+    left: -20px;
+    -webkit-transition-property: left, opacity, top;
+    -moz-transition-property: left, opacity, top;
+    -o-transition-property: left, opacity, top;
+    transition-property: left, opacity, top;
+    -webkit-transition-duration: .2s, .2s, .2s;
+    -moz-transition-duration: .2s, .2s, .2s;
+    -o-transition-duration: .2s, .2s, .2s;
+    transition-duration: .2s, .2s, .2s;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    position: absolute;
+    border-left: 5px solid yellow;
+    border-top: 5px solid yellow;
+    top: -22px;
+    opacity: 0;
+}
+a.fciA:hover:after {
+    left: -10px;
+    top: -12px;
+    opacity: 1;
+}
+a.fciA:before {
+    right: -20px;
+    -webkit-transition-property: right, opacity, top;
+    -moz-transition-property: right, opacity, top;
+    -o-transition-property: right, opacity, top;
+    transition-property: right, opacity, top;
+    -webkit-transition-duration: .2s, .2s, .2s;
+    -moz-transition-duration: .2s, .2s, .2s;
+    -o-transition-duration: .2s, .2s, .2s;
+    transition-duration: .2s, .2s, .2s;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    position: absolute;
+    border-right: 5px solid yellow;
+    border-top: 5px solid yellow;
+    top: -22px;
+    opacity: 0;
+}
+a.fciA:hover:before {
+    right: -10px;
+    top: -12px;
+    opacity: 1;
+}
+.fciSpan:after {
+    left: -20px;
+    -webkit-transition-property: left, opacity, bottom;
+    -moz-transition-property: left, opacity, bottom;
+    -o-transition-property: left, opacity, bottom;
+    transition-property: left, opacity, bottom;
+    -webkit-transition-duration: .2s, .2s, .2s;
+    -moz-transition-duration: .2s, .2s, .2s;
+    -o-transition-duration: .2s, .2s, .2s;
+    transition-duration: .2s, .2s, .2s;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    position: absolute;
+    border-left: 5px solid yellow;
+    border-bottom: 5px solid yellow;
+    bottom: -24px;
+    opacity: 0;
+}
+.fciSpan:hover:after {
+    left: -10px;
+    bottom: -14px;
+    opacity: 1;
+}
+.fciSpan:before {
+    right: -20px;
+    -webkit-transition-property: right, opacity, bottom;
+    -moz-transition-property: right, opacity, bottom;
+    -o-transition-property: right, opacity, bottom;
+    transition-property: right, opacity, bottom;
+    -webkit-transition-duration: .2s, .2s, .2s;
+    -moz-transition-duration: .2s, .2s, .2s;
+    -o-transition-duration: .2s, .2s, .2s;
+    transition-duration: .2s, .2s, .2s;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    position: absolute;
+    border-right: 5px solid yellow;
+    border-bottom: 5px solid yellow;
+    bottom: -24px;
+    opacity: 0;
+}
+.fciSpan:hover:before {
+    right: -10px;
+    bottom: -14px;
+    opacity: 1;
+}
+
+
+a.button16 {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1em;
+    outline: none;
+    border-radius: 1px;
+}
+a.button16:hover {
+    background-image:
+            radial-gradient(1px 45% at 0% 50%, rgba(0,0,0,.6), transparent),
+            radial-gradient(1px 45% at 100% 50%, rgba(0,0,0,.6), transparent);
+}
+a.button16:active {
+    background-image:
+            radial-gradient(45% 45% at 50% 100%, rgba(255,255,255,.9), rgba(255,255,255,0)),
+            linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.3));
+    box-shadow:
+            inset rgba(162,95,42,.4) 0 0 0 1px,
+            inset rgba(255,255,255,.9) 0 0 1px 3px;
+}
 /*.form_wrapper{*/
 /*    background-color: #71e0ba;*/
 /*}*/

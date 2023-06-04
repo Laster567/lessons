@@ -7,22 +7,29 @@
 </head>
 
         <div class="Header-main">
-            <a href="index.php">
+            <a href="index.php" style="
+    text-decoration: none;
+">
                 <span class="Header-text">
                 Каталог
             </span>
             </a>
 
-          <a href="my.php">
-              Ссылка на профиль
-          </a>
-            <a href="cart.php">
-                Ссылка на Корзину
-            </a>
-            </a>
-            <a href="game.php">
-                Ссылка на Игру
-            </a>
+<!--          <a href="my.php">-->
+<!--              Ссылка на профиль-->
+<!--          </a>-->
+<!--            <a href="cart.php">-->
+<!--                Ссылка на Корзину-->
+<!--            </a>-->
+<!--            </a>-->
+<!--            <a href="game.php">-->
+<!--                Ссылка на Игру-->
+<!--            </a>-->
+
+
+            <a href="game.php" class="button16">Игра</a>
+            <a href="cart.php" class="button16">Корзина</a>
+            <a href="my.php" class="button16">Профиль</a>
         </div>
 <script>
 
@@ -30,6 +37,73 @@
         document.forms[id].submit();
     }
     jQuery(document).ready(function($){
+
+        $('.fciSpan').hover(function (){
+            $(this).text("Получить монеты!");
+        },function (){
+            $(this).text("У вас недостаточно монет!");
+        })
+
+        $('.inc').click(function (){
+            $.ajax({
+                url: 'test.php',
+                data:{
+                    param:"inc",
+                    cart_id:$('#data_cart').attr('cartid'),
+                    product_id:$(this).attr('productId')
+                },
+                success: function ( result){
+                    console.log("sent")
+                    location.reload(true);
+                }
+            })
+        })
+
+        $('.dec').click(function (){
+            $.ajax({
+                url: 'test.php',
+                data:{
+                    param:"dec",
+                    cart_id:$('#data_cart').attr('cartid'),
+                    product_id:$(this).attr('productId')
+                },
+                success: function ( result){
+                    console.log("sent")
+                    location.reload(true);
+                }
+            })
+        })
+
+
+        $('.cart_main_button_all').click(function (){
+            $.ajax({
+                url: 'test.php',
+                data:{
+                    param:"all",
+                    cart_id:$('#data_cart').attr('cartid'),
+                    product_id:$(this).attr('productId')
+                },
+                success: function ( result){
+                    console.log("sent")
+                    location.reload(true);
+                }
+            })
+        });
+
+        $('.button11').click(function (){
+            $.ajax({
+                url: 'test.php',
+                data:{
+                    param:"buy",
+                    cart_id:$('#data_cart').attr('cartid'),
+                    product_id:$(this).attr('productId')
+                },
+                success: function ( result){
+                    console.log("order")
+                    location.reload(true);
+                }
+            })
+        })
 
         $('.card').find('button').click(function ( event){
             event.preventDefault();
@@ -60,3 +134,4 @@
 
     }
 </script>
+

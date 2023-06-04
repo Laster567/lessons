@@ -91,4 +91,25 @@ class DBhelper {
         $result = $statement ->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function deleteFromCart($cartId, $productID){
+        $this->pdo->query("DELETE FROM cart_has_product WHERE (cart_id=$cartId and Product_id = $productID);");
+    }
+
+    public function productDecreasse($cartId, $productID){
+        $this->pdo->query("DELETE FROM cart_has_product WHERE (cart_id=$cartId and Product_id = $productID) LIMIT 1;");
+    }
+
+    public function createOrder($uid,$pid){
+        $this->pdo->query("INSERT INTO orders (user_id, product_id) VALUES ( $uid,$pid );");
+    }
+
+    public function changeBalance($uid, $value){
+        $this->pdo->query("UPDATE users SET `balance` = '$value' WHERE (`id` = $uid);");
+
+
+    }
+
+
+
 }
